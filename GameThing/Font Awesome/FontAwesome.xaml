@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:GameThing">
+
+    <FontFamily x:Key="FontAwesome">/Font Awesome/fa-solid-900.ttf#Font Awesome 5 Free Solid</FontFamily>
+    <FontFamily x:Key="fas">/Font Awesome/fa-solid-900.ttf#Font Awesome 5 Free Solid</FontFamily>
+    <FontFamily x:Key="far">/Font Awesome/fa-regular-400.ttf#Font Awesome 5 Free Regular</FontFamily>
+    <FontFamily x:Key="fab">/Font Awesome/fa-brands-400.ttf#Font Awesome 5 Brands Regular</FontFamily>
+
+</ResourceDictionary>

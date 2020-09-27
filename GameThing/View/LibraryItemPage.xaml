@@ -1,0 +1,38 @@
+﻿<Page x:Class="GameThing.LibraryItemPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GameThing"
+      mc:Ignorable="d" 
+      d:DesignHeight="465" d:DesignWidth="740"
+      Title="Item Settings">
+
+    <Grid>
+
+        <Label Content="File Path" Height="20" VerticalAlignment="Top" Margin="10,10,640,0" />
+        <Label Content="File is missing or path is invalid!" Visibility="Hidden" Foreground="#FFFB2525" FontWeight="Bold" Height="20" VerticalAlignment="Top" Margin="105,10,10,0" />
+        <TextBox Text="{Binding SelectedItem.FilePath}" IsReadOnly="True" Height="30" VerticalAlignment="Top" Margin="10,35,10,0" />
+
+        <Label Content="Title" Height="20" VerticalAlignment="Top" Margin="10,75,10,0" />
+        <TextBox Text="{Binding SelectedItem.Title}" Height="30" VerticalAlignment="Top" Margin="10,100,10,0" />
+
+        <Label Content="System" Height="20" VerticalAlignment="Top" Margin="10,140,10,0" />
+        <ComboBox SelectedValue="{Binding SelectedItem.GameConsoleId}" ItemsSource="{Binding AllGameConsoles}" SelectedValuePath="Id" DisplayMemberPath="Title" Margin="10,165,10,270" />
+
+        <Label Content="Players" Height="20" VerticalAlignment="Top" Margin="10,205,10,0" />
+        <Label Content="to" HorizontalContentAlignment="Center" Height="30" VerticalAlignment="Top" Margin="90,230,615,0" />
+        <TextBox Text="{Binding SelectedItem.MinPlayers}" Height="30" VerticalAlignment="Top" Margin="10,230,655,0" />
+        <TextBox Text="{Binding SelectedItem.MaxPlayers}" Height="30" VerticalAlignment="Top" Margin="130,230,535,0" />
+
+        <CheckBox Content="Hidden" IsChecked="{Binding IsHidden}" Width="75" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,230,10,0" />
+
+        <Label Content="Tags" Height="20" VerticalAlignment="Top" Margin="10,270,10,0" />
+        <TextBox Text="{Binding TagsEdit, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalContentAlignment="Top" 
+                 Height="60" VerticalAlignment="Top" Margin="10,295,10,0" KeyDown="TxtTags_KeyDown" />
+
+        <Button Content="Cancel" Width="75" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Click="BtnCancel_Click" />
+        <Button Content="Save" Width="75" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Click="BtnSave_Click" />
+
+    </Grid>
+</Page>

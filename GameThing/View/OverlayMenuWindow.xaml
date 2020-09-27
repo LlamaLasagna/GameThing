@@ -1,0 +1,29 @@
+﻿<Window x:Class="GameThing.OverlayMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameThing"
+        mc:Ignorable="d"
+        Title="GameThing Options" Height="600" Width="800"
+        MinHeight="600" MinWidth="800"
+        Background="{x:Null}" AllowsTransparency="True" WindowStyle="None"
+        ShowInTaskbar="False" Topmost="True" WindowState="Maximized"
+        ContentRendered="Window_Loaded" Closed="Window_Closed">
+    <Grid>
+
+        <Rectangle Fill="Black" Opacity="0.5" />
+        <Grid Background="#eee" Width="760" Height="540" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
+            <Label Content="&#xf00d;" FontFamily="{StaticResource FontAwesome}" FontSize="18" Cursor="Hand" HorizontalContentAlignment="Center" 
+                       Width="35" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" MouseLeftButtonDown="BtnOverlayClose_Click" />
+            <Label Content="Options" FontSize="25" HorizontalContentAlignment="Center" Height="50" VerticalAlignment="Top" Margin="50,10,50,0" />
+            <Grid Margin="10,65,10,10">
+
+                <Button Content="Resume" FontSize="18" Height="40" VerticalAlignment="Top" Margin="10,10,10,0" Click="BtnResume_Click" />
+                <Button Content="Exit Game" FontSize="18" Height="40" VerticalAlignment="Top" Margin="10,55,10,0" Click="BtnExit_Click" />
+                
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>
