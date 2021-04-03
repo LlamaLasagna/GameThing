@@ -98,7 +98,7 @@ namespace GameThing
             LibraryCollection recentCollection = new LibraryCollection("Recently Played");
             recentCollection.SortField = "LastPlayed";
             recentCollection.MinHours = 0.001;
-            //generatedCollections.Add(recentCollection); TODO
+            generatedCollections.Add(recentCollection);
             //Generate auto-collections for each console
             foreach (GameConsole console in AllGameConsoles)
             {

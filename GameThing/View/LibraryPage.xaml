@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GameThing"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"
+      d:DesignHeight="720" d:DesignWidth="1280"
       Title="Library">
 
     <Grid>
@@ -30,14 +30,15 @@
             <Label Content="{Binding SelectedItem.GameConsoleTitle}" FontSize="24" HorizontalContentAlignment="Center" Height="45" VerticalAlignment="Bottom" 
                    Margin="10,0,10,165" Grid.ColumnSpan="2"/>
             <Label Content="&#xf0c0;" ToolTip="Players" FontFamily="{StaticResource FontAwesome}" FontSize="18" HorizontalContentAlignment="Center"
-                   Height="40" VerticalAlignment="Bottom" Margin="10,0,0,120" HorizontalAlignment="Left" Width="35"/>
-            <Label Content="{Binding SelectedItem.NumPlayers}" FontSize="18" Height="40" VerticalAlignment="Bottom" Margin="50,0,10,120"/>
+                   Height="40" VerticalAlignment="Bottom" Margin="0,0,205,120" HorizontalAlignment="Right" Width="35"/>
+            <Label Content="{Binding SelectedItem.NumPlayers}" FontSize="18" Height="40" VerticalAlignment="Bottom" Margin="0,0,10,120" HorizontalAlignment="Right" Width="190"/>
             <Label Content="&#xf017;" ToolTip="Time" FontFamily="{StaticResource FontAwesome}" FontSize="18" HorizontalContentAlignment="Center"
                    Height="40" VerticalAlignment="Bottom" Margin="10,0,0,120" Grid.Column="1" HorizontalAlignment="Left" Width="35"/>
-            <Label Content="{Binding SelectedItem.PlayTime}" FontSize="18" Height="40" VerticalAlignment="Bottom" Margin="50,0,10,120" Grid.Column="1"/>
+            <Label Content="{Binding SelectedItem.PlayTime}" FontSize="18" Height="40" VerticalAlignment="Bottom" Margin="50,0,0,120" Grid.Column="1" HorizontalAlignment="Left" Width="185"/>
+            <Label Content="{Binding SelectedItem.LastPlayedString}" FontSize="12" Height="24" VerticalAlignment="Bottom" Margin="50,0,75,96" Grid.Column="1"/>
             <Label Content="&#xf02b;" ToolTip="Tags" FontFamily="{StaticResource FontAwesome}" FontSize="18" HorizontalContentAlignment="Center"
-                   Height="40" VerticalAlignment="Bottom" Margin="10,0,0,75" HorizontalAlignment="Left" Width="35"/>
-            <Label Content="{Binding SelectedItem.TagsSimple}" FontSize="18" Height="40" VerticalAlignment="Bottom" Margin="50,0,10,75" Grid.ColumnSpan="2"/>
+                   Height="40" VerticalAlignment="Bottom" Margin="0,0,205,51" HorizontalAlignment="Right" Width="35"/>
+            <Label Content="{Binding SelectedItem.TagsSimple}" FontSize="18" Width="435" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="110,0,75,51" Grid.ColumnSpan="2" />
         </Grid>
 
         <Grid Height="70" VerticalAlignment="Bottom" Margin="10,0,10,40" Grid.Column="1">

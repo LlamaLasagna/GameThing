@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="GameThing Options" Height="600" Width="800"
         MinHeight="600" MinWidth="800"
-        Background="{x:Null}" AllowsTransparency="True" WindowStyle="None"
+        Background="{x:Null}" AllowsTransparency="False" WindowStyle="None"
         ShowInTaskbar="False" Topmost="True" WindowState="Maximized"
         ContentRendered="Window_Loaded" Closed="Window_Closed">
     <Grid>

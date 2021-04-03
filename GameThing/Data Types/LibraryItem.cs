@@ -72,6 +72,16 @@ namespace GameThing
             }
         }
         [JsonIgnore]
+        public string LastPlayedString
+        {
+            get
+            {
+                if (LastPlayed == null) return "";
+                string formattedDate = Tools.DateRelative(LastPlayed);
+                return "Last Played " + formattedDate;
+            }
+        }
+        [JsonIgnore]
         public string TagsSimple
         {
             get

@@ -147,8 +147,19 @@ namespace GameThing
             LibraryList = LibraryList.Where(x => x.IsVisible && x.FileExists).ToList();
             //TODO: Handle empty collections. Display message "No matching items"?
             //Sort the library list
-            //TODO: Custom sort field from collection
-            LibraryList.Sort((a, b) => a.CompareTitleTo(b));
+            //TODO: Custom sort field from collection, not gross hard-coding
+            if (SelectedCollection.SortField == "LastPlayed")
+            {
+                LibraryList.Sort((a, b) => {
+                    if (a.LastPlayed == b.LastPlayed) return 0;
+                    return a.LastPlayed < b.LastPlayed ? 1 : -1;
+                });
+            }
+            else
+            {
+                //Sort by title
+                LibraryList.Sort((a, b) => a.CompareTitleTo(b));
+            }
         }
 
 

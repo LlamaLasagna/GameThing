@@ -13,7 +13,7 @@ namespace GameThing
     {
         // CONSTANTS
 
-        private const int PollInterval = 10; //Milliseconds between each input poll
+        private const int PollInterval = 50; //Milliseconds between each input poll
         private const int InputBufferSize = 128;
         private const int JoystickRange = 65535;
         private const int JoystickDeadzone = 5000;

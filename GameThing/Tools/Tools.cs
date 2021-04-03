@@ -134,14 +134,41 @@ namespace GameThing
 
 
         /// <summary>
-        /// Round a number to the nearest multiple of a given number
+        /// Round a number to the nearest multiple of a given number.
         /// </summary>
         /// <param name="value">The number to round.</param>
-        /// <param name="nearest">Round to the nearest multiple of this number</param>
+        /// <param name="nearest">Round to the nearest multiple of this number.</param>
         /// <returns>The rounded number.</returns>
         public static int RoundToNearest(double value, int nearest)
         {
             return (int)Math.Round(value / nearest) * nearest;
+        }
+
+
+        /// <summary>
+        /// Formats a date to a user-friendly string that is relative to the current day.
+        /// </summary>
+        /// <param name="date">The date to format.</param>
+        /// <returns>The formatted date string.</returns>
+        public static string DateRelative(DateTime? date)
+        {
+            if (date == null) return "Never";
+            DateTime now = DateTime.Now;
+            DateTime dateNonNull = date ?? now;
+            string formattedDate = dateNonNull.ToString("d MMMM");
+            if (dateNonNull.Date == now.Date)
+            {
+                formattedDate = "Today at " + dateNonNull.ToString("h:mm tt");
+            }
+            else if (dateNonNull.Date == now.Date.Subtract(TimeSpan.FromDays(1)))
+            {
+                formattedDate = "Yesterday";
+            }
+            else if (dateNonNull.Year != now.Year)
+            {
+                formattedDate += " " + dateNonNull.Year;
+            }
+            return formattedDate;
         }
 
 

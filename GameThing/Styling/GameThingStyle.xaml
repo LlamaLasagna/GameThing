@@ -52,7 +52,6 @@
 
     <!-- Music panel style with animated visibility changing -->
     <Style TargetType="Grid" x:Key="MusicPlayerPanel">
-        <Setter Property="Background" Value="#FFEAEAEA"/>
         <Setter Property="Opacity" Value="0"/>
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
