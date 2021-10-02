@@ -14,6 +14,7 @@ namespace GameThing
         private const string ConsolesFilePath = "./Resource Data/consoles.json";
         private const string RunSettingsFilePath = "./Data/run_settings.json";
         private const string LibraryDataFilePath = "./Data/library.json";
+        private const int SteamConsoleId = 22;
 
 
         // PROPERTIES
@@ -201,6 +202,10 @@ namespace GameThing
                     _FullLibraryList.Add(libItem);
                 }
             }
+
+            //Add any installed Steam games to the list
+            ScanSteamDirectory();
+
             //Update the library data
             SaveLibraryData();
         }
@@ -242,6 +247,65 @@ namespace GameThing
                 GameConsoleInfo = matchedConsole
             };
             return libItem;
+        }
+
+
+        private static void ScanSteamDirectory()
+        {
+            //Set all existing Library items for Steam apps to hidden
+            //(This is so Steam apps that have been uninstalled won't show)
+            List<LibraryItem> existingApps = FullLibraryList.Where(x => x.GameConsoleId == SteamConsoleId).ToList();
+            existingApps.ForEach(x => x.IsVisible = false);
+
+            string fileDirectory = Properties.Settings.Default.SteamAppsDirectory;
+            if (string.IsNullOrEmpty(fileDirectory)) return;
+            //Handle non-existing directory
+            if (!Directory.Exists(fileDirectory)) return;
+            //Get Steam app manifest files in the directory
+            string[] manifestFiles = Directory.GetFiles(fileDirectory, "*.acf", SearchOption.TopDirectoryOnly);
+            //Get the "console" object for Steam
+            GameConsole steamConsole = AllGameConsoles.Find(x => x.Id == SteamConsoleId);
+            //Convert app manifest data to Library data
+            List<LibraryItem> steamApps = new List<LibraryItem>();
+            foreach (string filePath in manifestFiles)
+            {
+                //TODO: Try catch for if manifest file is invalid?
+                SteamManifestReader appManifest = new SteamManifestReader(filePath);
+                string appId = appManifest.GetValue("appid").ToString();
+                string appTitle = appManifest.GetValue("name").ToString();
+                string appSizeStr = appManifest.GetValue("SizeOnDisk").ToString();
+                long.TryParse(appSizeStr, out long appSize);
+                //Exclude "Steamworks Common Redistributables"
+                if (appId == "228980") continue;
+                //Create Library Item for Steam app
+                LibraryItem libItem = new LibraryItem()
+                {
+                    FilePath = $"steam://rungameid/{appId}",
+                    FileSize = appSize,
+                    Title = appTitle,
+                    FileExtension = "steam",
+                    GameConsoleId = SteamConsoleId,
+                    GameConsoleInfo = steamConsole
+                };
+                steamApps.Add(libItem);
+            }
+
+            //Add Steam apps to Library list
+            foreach (LibraryItem newItem in steamApps)
+            {
+                LibraryItem existingItem = FullLibraryList.Find(x => x.FilePath == newItem.FilePath);
+                if (existingItem == null)
+                {
+                    //New Steam app, add to Library list
+                    _FullLibraryList.Add(newItem);
+                }
+                else
+                {
+                    //This app is already in the Library, make it visible
+                    existingItem.IsVisible = true;
+                    existingItem.FileExists = true;
+                }
+            }
         }
 
 

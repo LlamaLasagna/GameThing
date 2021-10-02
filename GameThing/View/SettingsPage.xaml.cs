@@ -69,10 +69,21 @@ namespace GameThing
 
         private void OpenLibraryFileDialog()
         {
+            //TODO: No duplicate code!
             string directoryPath = OpenDirectoryFileDialog();
             if (!string.IsNullOrEmpty(directoryPath))
             {
                 vm.LibraryFileDirectory = directoryPath;
+            }
+        }
+
+
+        private void OpenSteamFileDialog()
+        {
+            string directoryPath = OpenDirectoryFileDialog();
+            if (!string.IsNullOrEmpty(directoryPath))
+            {
+                vm.SteamAppsDirectory = directoryPath;
             }
         }
 
@@ -156,6 +167,12 @@ namespace GameThing
         }
 
 
+        private void BtnSteamPath_Click(object sender, RoutedEventArgs e)
+        {
+            OpenSteamFileDialog();
+        }
+
+
         private void BtnMusicFilePath_Click(object sender, RoutedEventArgs e)
         {
             OpenMusicFileDialog();
@@ -171,6 +188,36 @@ namespace GameThing
         private void BtnBackFilePath_Click(object sender, RoutedEventArgs e)
         {
             OpenBackgroundFileDialog();
+        }
+
+
+        private void BtnLibFilePathClear_Click(object sender, RoutedEventArgs e)
+        {
+            vm.LibraryFileDirectory = null;
+        }
+
+
+        private void BtnSteamPathClear_Click(object sender, RoutedEventArgs e)
+        {
+            vm.SteamAppsDirectory = null;
+        }
+
+
+        private void BtnMusicFilePathClear_Click(object sender, RoutedEventArgs e)
+        {
+            vm.MusicFileDirectory = null;
+        }
+
+
+        private void BtnSplashFilePathClear_Click(object sender, RoutedEventArgs e)
+        {
+            vm.SplashFileDirectory = null;
+        }
+
+
+        private void BtnBackFilePathClear_Click(object sender, RoutedEventArgs e)
+        {
+            vm.BackgroundFilePath = null;
         }
 
 

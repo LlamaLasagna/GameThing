@@ -20,19 +20,23 @@
             <Grid>
                 <Label Content="Library Directory" FontSize="18" Height="30" VerticalAlignment="Top" Margin="10,10,10,0" />
                 <Button Content="{Binding LibraryFileDirectory}" FontSize="14" Height="30" VerticalAlignment="Top" Margin="10,40,45,0" Click="BtnLibFilePath_Click" />
-                <Button Content="x" FontSize="14" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,10,0" />
+                <Button Content="x" FontSize="14" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,10,0" Click="BtnLibFilePathClear_Click" />
 
-                <Label Content="Music Directory" FontSize="18" Height="30" VerticalAlignment="Top" Margin="10,85,10,0" />
-                <Button Content="{Binding MusicFileDirectory}" FontSize="14" Height="30" VerticalAlignment="Top" Margin="10,115,45,0" Click="BtnMusicFilePath_Click" />
-                <Button Content="x" FontSize="14" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="648,115,10,0" />
+                <Label Content="Steam Apps Directory" FontSize="18" Height="30" VerticalAlignment="Top" Margin="10,85,10,0" />
+                <Button Content="{Binding SteamAppsDirectory}" FontSize="14" Height="30" VerticalAlignment="Top" Margin="10,115,45,0" Click="BtnSteamPath_Click" />
+                <Button Content="x" FontSize="14" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,115,10,0" Click="BtnSteamPathClear_Click" />
 
-                <Label Content="Splash Video Directory" FontSize="18" Height="30" VerticalAlignment="Top" Margin="10,160,10,0" />
-                <Button Content="{Binding SplashFileDirectory}" FontSize="14" Height="30" VerticalAlignment="Top" Margin="10,190,45,0" Click="BtnSplashFilePath_Click" />
-                <Button Content="x" FontSize="14" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="648,190,10,0" />
+                <Label Content="Music Directory" FontSize="18" Height="30" VerticalAlignment="Top" Margin="10,160,10,0" />
+                <Button Content="{Binding MusicFileDirectory}" FontSize="14" Height="30" VerticalAlignment="Top" Margin="10,190,45,0" Click="BtnMusicFilePath_Click" />
+                <Button Content="x" FontSize="14" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,190,10,0" Click="BtnMusicFilePathClear_Click" />
 
-                <Label Content="Background" FontSize="18" Height="30" VerticalAlignment="Top" Margin="10,235,10,0" />
-                <Button Content="{Binding BackgroundFilePath}" FontSize="14" Height="30" VerticalAlignment="Top" Margin="10,265,45,0" Click="BtnBackFilePath_Click" />
-                <Button Content="x" FontSize="14" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="648,265,10,0" />
+                <Label Content="Splash Video Directory" FontSize="18" Height="30" VerticalAlignment="Top" Margin="10,235,10,0" />
+                <Button Content="{Binding SplashFileDirectory}" FontSize="14" Height="30" VerticalAlignment="Top" Margin="10,265,45,0" Click="BtnSplashFilePath_Click" />
+                <Button Content="x" FontSize="14" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,265,10,0" Click="BtnSplashFilePathClear_Click" />
+
+                <Label Content="Background" FontSize="18" Height="30" VerticalAlignment="Top" Margin="10,310,10,0" />
+                <Button Content="{Binding BackgroundFilePath}" FontSize="14" Height="30" VerticalAlignment="Top" Margin="10,340,45,0" Click="BtnBackFilePath_Click" />
+                <Button Content="x" FontSize="14" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,340,10,0" Click="BtnBackFilePathClear_Click" />
             </Grid>
         </GroupBox>
 

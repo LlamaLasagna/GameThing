@@ -77,7 +77,7 @@ namespace GameThing
             get
             {
                 if (LastPlayed == null) return "";
-                string formattedDate = Tools.DateRelative(LastPlayed);
+                string formattedDate = Tools.DateFromNow(LastPlayed);
                 return "Last Played " + formattedDate;
             }
         }

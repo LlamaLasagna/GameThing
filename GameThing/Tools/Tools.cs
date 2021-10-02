@@ -172,5 +172,48 @@ namespace GameThing
         }
 
 
+        /// <summary>
+        /// Formats a date to a string denoting how long ago (from the current time) it is.
+        /// </summary>
+        /// <param name="date">The date to format.</param>
+        /// <returns>The formatted string.</returns>
+        public static string DateFromNow(DateTime? date)
+        {
+            if (date == null) return "never";
+            DateTime now = DateTime.Now;
+            DateTime dateNonNull = date ?? now;
+            TimeSpan dateDiff = now.Subtract(dateNonNull);
+
+            string spanUnits = "hour";
+            int spanAmount = 0;
+            if (dateDiff.TotalHours < 1) return "recently";
+            else if (dateDiff.TotalDays < 1)
+            {
+                spanUnits = "hour";
+                spanAmount = (int)Math.Floor(dateDiff.TotalHours);
+            }
+            else if (dateDiff.TotalDays < 2) return "yesterday";
+            else if (dateDiff.TotalDays < 31)
+            {
+                spanUnits = "day";
+                spanAmount = (int)Math.Floor(dateDiff.TotalDays);
+            }
+            else if (dateDiff.TotalDays < 365)
+            {
+                spanUnits = "month";
+                spanAmount = (int)Math.Floor(dateDiff.TotalDays / 30);
+            }
+            else
+            {
+                spanUnits = "year";
+                spanAmount = (int)Math.Floor(dateDiff.TotalDays / 365);
+            }
+
+            string spanPlural = "s";
+            if (spanAmount == 1) spanPlural = "";
+            return $"{spanAmount} {spanUnits}{spanPlural} ago";
+        }
+
+
     }
 }

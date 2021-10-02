@@ -67,8 +67,16 @@ namespace GameThing
 
         private void PollInput()
         {
-            PollKeyboard();
-            PollGamepads();
+            try
+            {
+                PollKeyboard();
+                PollGamepads();
+            }
+            catch (Exception ex)
+            {
+                //TODO: More than this
+                Tools.LogError(ex);
+            }
         }
 
 

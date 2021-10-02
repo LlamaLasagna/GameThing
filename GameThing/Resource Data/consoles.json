@@ -251,4 +251,16 @@
 		'Generation': 8,
 		'FileTypes': []
 	},
+	{
+		'Id': 22,
+		'Title': 'Steam',
+		'FullTitle': 'Steam',
+		'ShortTitle': 'Steam',
+		'Company': 'Valve',
+		'Series': 'Steam',
+		'ReleaseDate': '2003-09-12',
+		'EndDate': null,
+		'Generation': 1,
+		'FileTypes': []
+	},
 ]

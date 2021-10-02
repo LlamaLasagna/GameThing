@@ -21,6 +21,17 @@ namespace GameThing
             }
         }
 
+        public string SteamAppsDirectory
+        {
+            get { return Properties.Settings.Default.SteamAppsDirectory; }
+            set
+            {
+                Properties.Settings.Default.SteamAppsDirectory = value;
+                SaveSettings();
+                RaisePropertyChanged("SteamAppsDirectory");
+            }
+        }
+
         public string MusicFileDirectory
         {
             get { return Properties.Settings.Default.MusicFileDirectory; }

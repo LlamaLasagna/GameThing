@@ -70,5 +70,17 @@ namespace GameThing.Properties {
                 this["SplashFileDirectory"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SteamAppsDirectory {
+            get {
+                return ((string)(this["SteamAppsDirectory"]));
+            }
+            set {
+                this["SteamAppsDirectory"] = value;
+            }
+        }
     }
 }
