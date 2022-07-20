@@ -47,10 +47,6 @@ namespace GameThing
         {
             get
             {
-                if (!string.IsNullOrEmpty(Properties.Settings.Default.BackgroundFilePath))
-                {
-                    return Properties.Settings.Default.BackgroundFilePath;
-                }
                 return "pack://application:,,,/Resource Assets/background_default.jpg";
             }
         }

@@ -84,6 +84,12 @@ namespace GameThing
         }
 
 
+        public void RaiseItemChanged()
+        {
+            RaisePropertyChanged("SelectedItem");
+        }
+
+
         public void SubmitCurrentTag()
         {
             if (string.IsNullOrWhiteSpace(TagsEdit)) { return; }

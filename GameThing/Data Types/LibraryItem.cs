@@ -23,6 +23,7 @@ namespace GameThing
         public int MaxPlayers { get; set; }
         public List<string> Tags { get; set; }
         public bool IsVisible { get; set; }
+        public string CoverImagePath { get; set; }
 
         public DateTime? FirstPlayed { get; set; }
         public DateTime? LastPlayed { get; set; }
@@ -67,7 +68,9 @@ namespace GameThing
                 }
                 else
                 {
-                    return $"About {FullHours} Hours";
+                    string output = $"About {FullHours} Hour";
+                    if (FullHours > 1) output += "s";
+                    return output;
                 }
             }
         }

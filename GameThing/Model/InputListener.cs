@@ -72,6 +72,10 @@ namespace GameThing
                 PollKeyboard();
                 PollGamepads();
             }
+            catch (ThreadAbortException)
+            {
+                //She'll be right
+            }
             catch (Exception ex)
             {
                 //TODO: More than this
@@ -105,41 +109,47 @@ namespace GameThing
 
         private void PollGamepads()
         {
-            foreach (DeviceInstance device in AllGamepads)
-            {
-                //TODO: Do this in initialisation?
-                Joystick gamepad = new Joystick(RawInput, device.InstanceGuid);
-                gamepad.Properties.BufferSize = InputBufferSize;
-                gamepad.Acquire();
+            //TODO: Update AllGamepads? New Gamepad may have been connected since init
 
-                //Poll events from gamepad
-                gamepad.Poll();
-                JoystickState state = gamepad.GetCurrentState();
-                List<JoystickUpdate> lastUpdates = gamepad.GetBufferedData().ToList();
+            //foreach (DeviceInstance device in AllGamepads)
+            //{
+            //    //NOTE: Annoying exception here, lasts for 16 seconds? or an hour?:
+            //    //    at SharpDX.Result.CheckError()
+            //    //    at SharpDX.DirectInput.DirectInput.CreateDevice(Guid arg0, IntPtr& arg1, ComObject arg2)
+            //    //    HRESULT: [0x80004005], Module: [General], ApiCode: [E_FAIL/Unspecified error], Message: Unspecified error
+            //    //TODO: Do this in initialisation? (would that fix the above error?)
+            //    Joystick gamepad = new Joystick(RawInput, device.InstanceGuid);
+            //    gamepad.Properties.BufferSize = InputBufferSize;
+            //    gamepad.Acquire();
 
-                //Handle updates
-                if (lastUpdates != null && lastUpdates.Count > 0)
-                {
-                    //TODO
-                }
+            //    //Poll events from gamepad
+            //    gamepad.Poll();
+            //    JoystickState state = gamepad.GetCurrentState();
+            //    List<JoystickUpdate> lastUpdates = gamepad.GetBufferedData().ToList();
 
-                //D-Pad events
-                switch (state.PointOfViewControllers[0])
-                {
-                    case 0:
-                        //D-Pad Up
-                        break;
-                    case 9000:
-                        //D-Pad Right
-                        break;
-                    case 18000:
-                        //D-Pad Down
-                        break;
-                    case 27000:
-                        //D-Pad Left
-                        break;
-                }
-            }
+            //    //Handle updates
+            //    if (lastUpdates != null && lastUpdates.Count > 0)
+            //    {
+            //        //TODO
+            //    }
+
+            //    //D-Pad events
+            //    switch (state.PointOfViewControllers[0])
+            //    {
+            //        case 0:
+            //            //D-Pad Up
+            //            break;
+            //        case 9000:
+            //            //D-Pad Right
+            //            break;
+            //        case 18000:
+            //            //D-Pad Down
+            //            break;
+            //        case 27000:
+            //            //D-Pad Left
+            //            break;
+            //    }
+            //}
         }
 
 

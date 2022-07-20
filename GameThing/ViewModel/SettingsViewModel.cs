@@ -54,17 +54,6 @@ namespace GameThing
             }
         }
 
-        public string BackgroundFilePath
-        {
-            get { return Properties.Settings.Default.BackgroundFilePath; }
-            set
-            {
-                Properties.Settings.Default.BackgroundFilePath = value;
-                SaveSettings();
-                RaisePropertyChanged("BackgroundFilePath");
-            }
-        }
-
 
         // METHODS
 

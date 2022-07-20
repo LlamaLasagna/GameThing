@@ -88,6 +88,9 @@
     </ApplicationDefinition>
     <Compile Include="Tools\SteamManifestReader.cs" />
     <Compile Include="ViewModel\SplashViewModel.cs" />
+    <Compile Include="View\LibraryItemCover.xaml.cs">
+      <DependentUpon>LibraryItemCover.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
       <DependentUpon>SplashWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Font Awesome\FontAwesome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LibraryItemCover.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

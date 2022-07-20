@@ -5,9 +5,6 @@
     <Setting Name="LibraryFileDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)">./</Value>
     </Setting>
-    <Setting Name="BackgroundFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="MusicFileDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>

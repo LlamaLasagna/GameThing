@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -84,25 +85,29 @@ namespace GameThing
         /// </summary>
         /// <param name="exceptionPart">The exception to get the messages from.</param>
         /// <param name="innerDepth">Used for recursing through inner exceptions. Leave at zero.</param>
+        /// <param name="topException">The top level exception object (for inner exceptions).</param>
         /// <returns>The full exception message.</returns>
-        public static string GetFullExceptionMessage(Exception exceptionPart, int innerDepth = 0)
+        public static string GetFullExceptionMessage(Exception exceptionPart, int innerDepth = 0, Exception topException = null)
         {
+            if (topException == null) topException = exceptionPart;
+
             string exceptionMessage = exceptionPart.Message;
             
-            if (innerDepth <= 0)
-            {
-                //Add the stack trace to the beginning if this is the top-most exception
-                exceptionMessage = exceptionPart.StackTrace + "\r\n" + exceptionMessage;
-            }
-            else
+            if (innerDepth > 0)
             {
                 //Add indenting if this is an inner exception
                 exceptionMessage = "\r\n    └" + new String('─', innerDepth * 3) + " " + exceptionPart.Message;
             }
-            //Recurse through inner exceptions to get the full message
+
             if (exceptionPart.InnerException != null)
             {
-                exceptionMessage += GetFullExceptionMessage(exceptionPart.InnerException, innerDepth + 1);
+                //Recurse through inner exceptions to get the full message
+                exceptionMessage += GetFullExceptionMessage(exceptionPart.InnerException, innerDepth + 1, topException);
+            }
+            else
+            {
+                //Add the strack trace to the end of the message
+                exceptionMessage += "\r\n" + topException.StackTrace;
             }
             return exceptionMessage;
         }
@@ -212,6 +217,26 @@ namespace GameThing
             string spanPlural = "s";
             if (spanAmount == 1) spanPlural = "";
             return $"{spanAmount} {spanUnits}{spanPlural} ago";
+        }
+
+
+        /// <summary>
+        /// Converts an absolute file path to a relative file path.
+        /// </summary>
+        /// <param name="filePath">File path to convert to relative.</param>
+        /// <param name="referencePath">Path that the output path will be relative to.</param>
+        /// <returns>Relative file path.</returns>
+        public static string GetRelativePath(string filePath, string referencePath = null)
+        {
+            if (referencePath == null)
+            {
+                referencePath = Assembly.GetEntryAssembly().Location;
+            }
+            
+            Uri fileUri = new Uri(filePath);
+            Uri referenceUri = new Uri(referencePath);
+            string relativePath = referenceUri.MakeRelativeUri(fileUri).ToString();
+            return Uri.UnescapeDataString(relativePath);
         }
 
 

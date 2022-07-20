@@ -3,16 +3,40 @@
                     xmlns:local="clr-namespace:GameThing"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <Style TargetType="Button">
-        <Setter Property="Background" Value="#FFEAEAEA"/>
+    <Style x:Key="BtnStandard" TargetType="Button">
+        <Setter Property="Foreground" Value="#FFF"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="#FFF" Opacity="0.1" />
+            </Setter.Value>
+        </Setter>
         <Setter Property="Padding" Value="5,0"/>
         <Setter Property="FontFamily" Value="Global Sans Serif"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="8" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
-                        <!-- TODO: Change so this doesn't overwrite formatting. eg button in debug window is supposed to be left aligned -->
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Border CornerRadius="8" BorderThickness="1,1,0,0" BorderBrush="#FFF" Background="{TemplateBinding Background}">
+                        <Border CornerRadius="8" BorderThickness="0,0,1,1" BorderBrush="#DDD">
+                            <!-- TODO: Change so this doesn't overwrite formatting. eg button in debug window is supposed to be left aligned -->
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Button" BasedOn="{StaticResource BtnStandard}" />
+
+    <Style x:Key="BtnCircle" TargetType="Button" BasedOn="{StaticResource BtnStandard}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="200" BorderThickness="1,1,0,0" BorderBrush="#FFF" Background="{TemplateBinding Background}">
+                        <Border CornerRadius="200" BorderThickness="0,0,1,1" BorderBrush="#DDD">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -20,6 +44,7 @@
     </Style>
 
     <Style TargetType="Label">
+        <Setter Property="Foreground" Value="#FFF"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="5,0"/>
     </Style>
@@ -41,17 +66,23 @@
     </Style>
 
     <Style TargetType="CheckBox">
+        <Setter Property="Foreground" Value="#FFF"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
     <Style TargetType="ListBox">
+        <Setter Property="Foreground" Value="#FFF"/>
         <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="BorderBrush" Value="{x:Null}"/>
         <Setter Property="FontFamily" Value="Global Sans Serif"/>
     </Style>
 
+    <Style TargetType="GroupBox">
+        <Setter Property="Foreground" Value="#FFF"/>
+    </Style>
+
     <!-- Music panel style with animated visibility changing -->
-    <Style TargetType="Grid" x:Key="MusicPlayerPanel">
+    <!--<Style TargetType="Grid" x:Key="MusicPlayerPanel">
         <Setter Property="Opacity" Value="0"/>
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
@@ -76,7 +107,7 @@
                 </Trigger.Setters>
             </Trigger>
         </Style.Triggers>
-    </Style>
+    </Style>-->
 
     <!-- Scrollbar style taken from: https://blog.jsinh.in/how-to-create-apple-macos-like-scrollbar-in-wpf -->
     <Style x:Key="ScrollBarTrackThumb" TargetType="{x:Type Thumb}">

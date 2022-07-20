@@ -12,24 +12,32 @@
 
         <Label Content="File Path" Height="20" VerticalAlignment="Top" Margin="10,10,640,0" />
         <Label Content="File is missing or path is invalid!" Visibility="Hidden" Foreground="#FFFB2525" FontWeight="Bold" Height="20" VerticalAlignment="Top" Margin="105,10,10,0" />
-        <TextBox Text="{Binding SelectedItem.FilePath}" IsReadOnly="True" Height="30" VerticalAlignment="Top" Margin="10,35,10,0" />
+        <TextBox Text="{Binding SelectedItem.FilePath}" IsReadOnly="True" Height="30" VerticalAlignment="Top" Margin="10,30,10,0" />
 
-        <Label Content="Title" Height="20" VerticalAlignment="Top" Margin="10,75,10,0" />
-        <TextBox Text="{Binding SelectedItem.Title}" Height="30" VerticalAlignment="Top" Margin="10,100,10,0" />
+        <Label Content="Title" Height="20" VerticalAlignment="Top" Margin="10,70,10,0" />
+        <TextBox Text="{Binding SelectedItem.Title}" Height="30" VerticalAlignment="Top" Margin="10,90,10,0" />
 
-        <Label Content="System" Height="20" VerticalAlignment="Top" Margin="10,140,10,0" />
-        <ComboBox SelectedValue="{Binding SelectedItem.GameConsoleId}" ItemsSource="{Binding AllGameConsoles}" SelectedValuePath="Id" DisplayMemberPath="Title" Margin="10,165,10,270" />
+        <Label Content="Cover Image" Height="20" VerticalAlignment="Top" Margin="10,130,10,0" />
+        <TextBox Text="{Binding SelectedItem.CoverImagePath}" IsReadOnly="True" Height="30" VerticalAlignment="Top" Margin="10,150,125,0" />
+        <Button Content="x" FontSize="14" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,150,90,0" Click="BtnCoverImageClear_Click" />
+        <Button Content="Browse" Width="75" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,150,10,0" Click="BtnCoverImage_Click" />
 
-        <Label Content="Players" Height="20" VerticalAlignment="Top" Margin="10,205,10,0" />
-        <Label Content="to" HorizontalContentAlignment="Center" Height="30" VerticalAlignment="Top" Margin="90,230,615,0" />
-        <TextBox Text="{Binding SelectedItem.MinPlayers}" Height="30" VerticalAlignment="Top" Margin="10,230,655,0" />
-        <TextBox Text="{Binding SelectedItem.MaxPlayers}" Height="30" VerticalAlignment="Top" Margin="130,230,535,0" />
+        <Label Content="System" Width="195" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,190,0,0" />
+        <ComboBox SelectedValue="{Binding SelectedItem.GameConsoleId}" ItemsSource="{Binding AllGameConsoles}" SelectedValuePath="Id" DisplayMemberPath="Title"
+                  Width="195" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,210,0,0" />
 
-        <CheckBox Content="Hidden" IsChecked="{Binding IsHidden}" Width="75" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,230,10,0" />
+        <Grid Width="195" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,190,0,0">
+            <Label Content="Players" Height="20" VerticalAlignment="Top" Margin="0" />
+            <Label Content="to" HorizontalContentAlignment="Center" Height="30" VerticalAlignment="Top" Margin="75,20,75,0" />
+            <TextBox Text="{Binding SelectedItem.MinPlayers}" Width="75" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,20,0,0" />
+            <TextBox Text="{Binding SelectedItem.MaxPlayers}" Width="75" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,0,0" />
+        </Grid>
 
-        <Label Content="Tags" Height="20" VerticalAlignment="Top" Margin="10,270,10,0" />
+        <CheckBox Content="Hidden" IsChecked="{Binding IsHidden}" Width="75" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,210,10,0" />
+
+        <Label Content="Tags" Height="20" VerticalAlignment="Top" Margin="10,255,10,0" />
         <TextBox Text="{Binding TagsEdit, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalContentAlignment="Top" 
-                 Height="60" VerticalAlignment="Top" Margin="10,295,10,0" KeyDown="TxtTags_KeyDown" />
+                 Height="60" VerticalAlignment="Top" Margin="10,275,10,0" KeyDown="TxtTags_KeyDown" />
 
         <Button Content="Cancel" Width="75" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Click="BtnCancel_Click" />
         <Button Content="Save" Width="75" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Click="BtnSave_Click" />

@@ -38,18 +38,6 @@ namespace GameThing.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string BackgroundFilePath {
-            get {
-                return ((string)(this["BackgroundFilePath"]));
-            }
-            set {
-                this["BackgroundFilePath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string MusicFileDirectory {
             get {
                 return ((string)(this["MusicFileDirectory"]));

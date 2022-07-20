@@ -40,6 +40,28 @@ namespace GameThing
         }
 
 
+        // METHODS
+
+        private void OpenCoverImageFileDialog()
+        {
+            try
+            {
+                Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+                dialog.FileName = vm.SelectedItem.CoverImagePath;
+                bool? dialogResult = dialog.ShowDialog();
+                if (dialogResult == true)
+                {
+                    vm.SelectedItem.CoverImagePath = dialog.FileName;
+                    vm.RaiseItemChanged();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Unhandled Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
         // EVENT HANDLERS
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -60,6 +82,19 @@ namespace GameThing
         {
             //TODO: Revert SelectedItem back to original values
             parent.HideSubView();
+        }
+
+
+        private void BtnCoverImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenCoverImageFileDialog();
+        }
+
+
+        private void BtnCoverImageClear_Click(object sender, RoutedEventArgs e)
+        {
+            vm.SelectedItem.CoverImagePath = null;
+            vm.RaiseItemChanged();
         }
 
 

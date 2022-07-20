@@ -41,6 +41,21 @@ namespace GameThing
 
         // METHODS
 
+        private void OpenConsoleSettings()
+        {
+            try
+            {
+                //TODO: Only one window. Use pages within the single window instead.
+                ConsolesWindow winConsoleSettings = new ConsolesWindow();
+                winConsoleSettings.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Unhandled Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
         private string OpenDirectoryFileDialog()
         {
             try
@@ -108,25 +123,6 @@ namespace GameThing
         }
 
 
-        private void OpenBackgroundFileDialog()
-        {
-            try
-            {
-                Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
-                dialog.FileName = vm.BackgroundFilePath;
-                bool? dialogResult = dialog.ShowDialog();
-                if (dialogResult == true)
-                {
-                    vm.BackgroundFilePath = dialog.FileName;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Unhandled Exception", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-
         private void OpenApplicationDirectory()
         {
             Process.Start(".");
@@ -152,6 +148,12 @@ namespace GameThing
             {
                 Process.Start("shutdown", "/s /t 0");
             }
+        }
+
+
+        private void BtnConsoleSettings_Click(object sender, RoutedEventArgs e)
+        {
+            OpenConsoleSettings();
         }
 
 
@@ -185,12 +187,6 @@ namespace GameThing
         }
 
 
-        private void BtnBackFilePath_Click(object sender, RoutedEventArgs e)
-        {
-            OpenBackgroundFileDialog();
-        }
-
-
         private void BtnLibFilePathClear_Click(object sender, RoutedEventArgs e)
         {
             vm.LibraryFileDirectory = null;
@@ -212,12 +208,6 @@ namespace GameThing
         private void BtnSplashFilePathClear_Click(object sender, RoutedEventArgs e)
         {
             vm.SplashFileDirectory = null;
-        }
-
-
-        private void BtnBackFilePathClear_Click(object sender, RoutedEventArgs e)
-        {
-            vm.BackgroundFilePath = null;
         }
 
 

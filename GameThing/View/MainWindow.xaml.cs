@@ -25,7 +25,6 @@ namespace GameThing
         // CONSTANTS
 
         private const double MusicStartDelay = 3 * 1000; //Seconds * 1000
-        private const double PopupInterval = 8 * 1000; //Seconds * 1000
 
 
         // PROPERTIES
@@ -36,7 +35,6 @@ namespace GameThing
         private InputListener input;
 
         private Timer MusicStartTimer;
-        private Timer MusicPopupTimer;
 
 
         // CONSTRUCTORS
@@ -280,7 +278,6 @@ namespace GameThing
             {
                 //Stop timers
                 if (MusicStartTimer != null && MusicStartTimer.Enabled) MusicStartTimer.Stop();
-                if (MusicPopupTimer != null && MusicPopupTimer.Enabled) MusicPopupTimer.Stop();
                 //Ensure the task tray icon is disposed before closing
                 trayIcon.Close();
                 //Ensure the input listener is disposed
@@ -294,34 +291,6 @@ namespace GameThing
             //Shut down the entire application (all windows)
             //Application.Current.Shutdown(); //This sometimes gets a null reference exception
             Process.GetCurrentProcess().Kill();
-        }
-
-
-        private void OpenConsoleSettings()
-        {
-            try
-            {
-                //TODO: Only one window. Use pages within the single window instead.
-                ConsolesWindow winConsoleSettings = new ConsolesWindow();
-                winConsoleSettings.Show();
-            }
-            catch (Exception ex)
-            {
-                HandleError(ex);
-            }
-        }
-
-
-        private void ShowCurrentMusic()
-        {
-            MusicPopup.IsEnabled = true;
-            if (MusicPopupTimer != null && MusicPopupTimer.Enabled)
-            {
-                MusicPopupTimer.Stop();
-            }
-            MusicPopupTimer = new Timer(PopupInterval);
-            MusicPopupTimer.Elapsed += MusicPopupTimer_Elapsed;
-            MusicPopupTimer.Start();
         }
 
 
@@ -410,12 +379,6 @@ namespace GameThing
         }
 
 
-        private void BtnConsoleSettings_Click(object sender, RoutedEventArgs e)
-        {
-            OpenConsoleSettings();
-        }
-
-
         private void BtnDebug_Click(object sender, RoutedEventArgs e)
         {
             ShowSettingsPage();
@@ -437,7 +400,6 @@ namespace GameThing
         private void MusicPlayer_MusicStarted(object sender, EventArgs e)
         {
             vm.UpdateMusicProperties();
-            ShowCurrentMusic();
         }
 
 
@@ -452,14 +414,9 @@ namespace GameThing
         }
 
 
-        private void MusicPopupTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private void BtnSkipSong_Click(object sender, RoutedEventArgs e)
         {
-            Dispatcher.Invoke(() =>
-            {
-                MusicPopup.IsEnabled = false;
-                MusicPopupTimer.Stop();
-                MusicPopupTimer.Dispose();
-            });
+            MusicNext();
         }
 
 

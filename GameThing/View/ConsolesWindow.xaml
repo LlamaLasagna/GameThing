@@ -8,7 +8,7 @@
         Title="Emulator Settings"
         Height="540" Width="720" MinHeight="448" MinWidth="512">
 
-    <Grid Background="#ddd">
+    <Grid Background="#333">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
