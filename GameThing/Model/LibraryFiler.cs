@@ -14,7 +14,7 @@ namespace GameThing
         private const string ConsolesFilePath = "./Resource Data/consoles.json";
         private const string RunSettingsFilePath = "./Data/run_settings.json";
         private const string LibraryDataFilePath = "./Data/library.json";
-        private const int SteamConsoleId = 22;
+        private const int SteamConsoleId = 2;
 
 
         // PROPERTIES

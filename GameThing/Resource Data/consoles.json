@@ -9,10 +9,22 @@
 		'ReleaseDate': '1985-11-20',
 		'EndDate': null,
 		'Generation': 1,
-		'FileTypes': ['exe']
+		'FileTypes': ['exe', 'lnk']
 	},
 	{
 		'Id': 2,
+		'Title': 'Steam',
+		'FullTitle': 'Steam',
+		'ShortTitle': 'Steam',
+		'Company': 'Valve',
+		'Series': 'Steam',
+		'ReleaseDate': '2003-09-12',
+		'EndDate': null,
+		'Generation': 7,
+		'FileTypes': []
+	},
+	{
+		'Id': 3,
 		'Title': 'Arcade',
 		'FullTitle': 'Arcade',
 		'ShortTitle': 'Arcade',
@@ -24,7 +36,7 @@
 		'FileTypes': ['zip', 'bin']
 	},
 	{
-		'Id': 3,
+		'Id': 4,
 		'Title': 'NES',
 		'FullTitle': 'Nintendo Entertainment System',
 		'ShortTitle': 'NES',
@@ -36,7 +48,7 @@
 		'FileTypes': ['nes']
 	},
 	{
-		'Id': 4,
+		'Id': 5,
 		'Title': 'Sega Master System',
 		'FullTitle': 'Sega Master System',
 		'ShortTitle': 'Sega MK3',
@@ -48,7 +60,7 @@
 		'FileTypes': ['sms']
 	},
 	{
-		'Id': 5,
+		'Id': 6,
 		'Title': 'Game Boy',
 		'FullTitle': 'Game Boy',
 		'ShortTitle': 'GB',
@@ -60,7 +72,7 @@
 		'FileTypes': ['gb', 'gbc']
 	},
 	{
-		'Id': 6,
+		'Id': 7,
 		'Title': 'Sega Mega Drive',
 		'FullTitle': 'Sega Mega Drive/Genesis',
 		'ShortTitle': 'Mega Drive',
@@ -72,7 +84,7 @@
 		'FileTypes': ['md', 'bin']
 	},
 	{
-		'Id': 7,
+		'Id': 8,
 		'Title': 'Neo Geo',
 		'FullTitle': 'Neo Geo AES',
 		'ShortTitle': 'Neo Geo',
@@ -84,7 +96,7 @@
 		'FileTypes': ['bin', 'zip']
 	},
 	{
-		'Id': 8,
+		'Id': 9,
 		'Title': 'SNES',
 		'FullTitle': 'Super Nintendo Entertainment System',
 		'ShortTitle': 'SNES',
@@ -96,19 +108,19 @@
 		'FileTypes': ['sfc', 'smc']
 	},
 	{
-		'Id': 9,
+		'Id': 10,
 		'Title': 'Virtual Boy',
 		'FullTitle': 'Virtual Boy',
 		'ShortTitle': 'VB',
 		'Company': 'Nintendo',
-		'Series': 'Virtual Boy',
+		'Series': 'Nintendo Handheld',
 		'ReleaseDate': '1995-08-14',
 		'EndDate': '1996-03-02',
 		'Generation': 5,
 		'FileTypes': []
 	},
 	{
-		'Id': 10,
+		'Id': 11,
 		'Title': 'PlayStation',
 		'FullTitle': 'PlayStation',
 		'ShortTitle': 'PS1',
@@ -120,7 +132,7 @@
 		'FileTypes': ['ecm', 'cue']
 	},
 	{
-		'Id': 11,
+		'Id': 12,
 		'Title': 'Nintendo 64',
 		'FullTitle': 'Nintendo 64',
 		'ShortTitle': 'N64',
@@ -132,7 +144,7 @@
 		'FileTypes': ['n64', 'z64']
 	},
 	{
-		'Id': 12,
+		'Id': 13,
 		'Title': 'Dreamcast',
 		'FullTitle': 'Sega Dreamcast',
 		'ShortTitle': 'Dreamcast',
@@ -141,10 +153,10 @@
 		'ReleaseDate': '1999-09-09',
 		'EndDate': '2001-03-31',
 		'Generation': 6,
-		'FileTypes': []
+		'FileTypes': ['cue']
 	},
 	{
-		'Id': 13,
+		'Id': 14,
 		'Title': 'PlayStation 2',
 		'FullTitle': 'PlayStation 2',
 		'ShortTitle': 'PS2',
@@ -156,7 +168,7 @@
 		'FileTypes': []
 	},
 	{
-		'Id': 14,
+		'Id': 15,
 		'Title': 'Game Boy Advance',
 		'FullTitle': 'Game Boy Advance',
 		'ShortTitle': 'GBA',
@@ -168,7 +180,7 @@
 		'FileTypes': ['gba']
 	},
 	{
-		'Id': 15,
+		'Id': 16,
 		'Title': 'GameCube',
 		'FullTitle': 'Nintendo GameCube',
 		'ShortTitle': 'GCN',
@@ -180,7 +192,7 @@
 		'FileTypes': ['iso', 'gcm']
 	},
 	{
-		'Id': 16,
+		'Id': 17,
 		'Title': 'Xbox',
 		'FullTitle': 'Xbox',
 		'ShortTitle': 'Xbox',
@@ -192,7 +204,7 @@
 		'FileTypes': []
 	},
 	{
-		'Id': 17,
+		'Id': 18,
 		'Title': 'Nintendo DS',
 		'FullTitle': 'Nintendo DS',
 		'ShortTitle': 'NDS',
@@ -204,7 +216,43 @@
 		'FileTypes': ['nds']
 	},
 	{
-		'Id': 18,
+		'Id': 19,
+		'Title': 'PSP',
+		'FullTitle': 'PlayStation Portable',
+		'ShortTitle': 'PSP',
+		'Company': 'Sony',
+		'Series': 'PlayStation Portable',
+		'ReleaseDate': '2004-12-12',
+		'EndDate': '2014-01-01',
+		'Generation': 7,
+		'FileTypes': []
+	},
+	{
+		'Id': 20,
+		'Title': 'Xbox 360',
+		'FullTitle': 'Xbox 360',
+		'ShortTitle': 'X360',
+		'Company': 'Microsoft',
+		'Series': 'Xbox',
+		'ReleaseDate': '2005-11-22',
+		'EndDate': '2016-04-20',
+		'Generation': 7,
+		'FileTypes': []
+	},
+	{
+		'Id': 21,
+		'Title': 'PlayStation 3',
+		'FullTitle': 'PlayStation 3',
+		'ShortTitle': 'PS3',
+		'Company': 'Sony',
+		'Series': 'PlayStation',
+		'ReleaseDate': '2006-11-11',
+		'EndDate': '2015-09-29',
+		'Generation': 7,
+		'FileTypes': []
+	},
+	{
+		'Id': 22,
 		'Title': 'Wii',
 		'FullTitle': 'Nintendo Wii',
 		'ShortTitle': 'Wii',
@@ -216,19 +264,31 @@
 		'FileTypes': ['iso']
 	},
 	{
-		'Id': 19,
+		'Id': 23,
 		'Title': '3DS',
 		'FullTitle': 'Nintendo 3DS',
 		'ShortTitle': '3DS',
 		'Company': 'Nintendo',
 		'Series': 'Nintendo Handheld',
 		'ReleaseDate': '2011-03-27',
-		'EndDate': null,
+		'EndDate': '2020-09-16',
+		'Generation': 8,
+		'FileTypes': ['3ds']
+	},
+	{
+		'Id': 24,
+		'Title': 'PS Vita',
+		'FullTitle': 'PlayStation Vita',
+		'ShortTitle': 'Vita',
+		'Company': 'Sony',
+		'Series': 'PlayStation Portable',
+		'ReleaseDate': '2011-12-17',
+		'EndDate': '2019-03-01',
 		'Generation': 8,
 		'FileTypes': []
 	},
 	{
-		'Id': 20,
+		'Id': 25,
 		'Title': 'Wii U',
 		'FullTitle': 'Nintendo Wii U',
 		'ShortTitle': 'Wii U',
@@ -240,7 +300,31 @@
 		'FileTypes': ['iso']
 	},
 	{
-		'Id': 21,
+		'Id': 26,
+		'Title': 'PlayStation 4',
+		'FullTitle': 'PlayStation 4',
+		'ShortTitle': 'PS4',
+		'Company': 'Sony',
+		'Series': 'PlayStation',
+		'ReleaseDate': '2013-11-15',
+		'EndDate': '2021-01-05',
+		'Generation': 8,
+		'FileTypes': []
+	},
+	{
+		'Id': 27,
+		'Title': 'Xbox One',
+		'FullTitle': 'Xbox One',
+		'ShortTitle': 'XBone',
+		'Company': 'Microsoft',
+		'Series': 'Xbox',
+		'ReleaseDate': '2013-11-22',
+		'EndDate': '2020-11-10',
+		'Generation': 8,
+		'FileTypes': []
+	},
+	{
+		'Id': 28,
 		'Title': 'Nintendo Switch',
 		'FullTitle': 'Nintendo Switch',
 		'ShortTitle': 'Switch',
@@ -250,17 +334,5 @@
 		'EndDate': null,
 		'Generation': 8,
 		'FileTypes': []
-	},
-	{
-		'Id': 22,
-		'Title': 'Steam',
-		'FullTitle': 'Steam',
-		'ShortTitle': 'Steam',
-		'Company': 'Valve',
-		'Series': 'Steam',
-		'ReleaseDate': '2003-09-12',
-		'EndDate': null,
-		'Generation': 1,
-		'FileTypes': []
-	},
+	}
 ]

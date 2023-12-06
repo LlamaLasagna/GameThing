@@ -243,7 +243,7 @@ namespace GameThing
                 cmdArgs = ProcessArgs.Trim() + " ";
             }
 
-            string cmdCommand = $"\"{ProcessPath}\" {ProcessArgs}\"{OpenFilePath}\"";
+            string cmdCommand = $"\"{ProcessPath}\" {cmdArgs}\"{OpenFilePath}\"";
 
             //Execute commands in Command Prompt to run the application
             cmdProc.StandardInput.WriteLine(cmdCommand);
